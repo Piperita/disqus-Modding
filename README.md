@@ -2,7 +2,7 @@
 [To be added without the curses I plan to use right now regarding this system ;)]
 
 #How to use
-To use it on Equestria Daily or other websites themselves without using the disqus-site itself, an add-on like GreaseMonkey (Firefox) or TamperMonkey(Chrome) is inevitable as cross-domain scripting is not possible from the console.
+To use it on Equestria Daily or other websites themselves without using the disqus-site itself, an add-on like <a href="https://addons.mozilla.org/de/firefox/addon/greasemonkey/">GreaseMonkey</a> (Firefox) or <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=de">TamperMonkey</a> (Chrome) is inevitable as cross-domain scripting is not possible from the console.
 With such an add-on installed use the link below which should launch an install-prompt: 
 
 ####<b><a href="https://github.com/Piperita/disqus-Modding/raw/master/full/GreaseMonkey/full_stable.user.js">CLICK HERE</a></b>
@@ -26,10 +26,11 @@ The buttons are at three different positions:
 The second and third functions only target the display without much processing and are therefore instantaneous even at posts with over 2000 replies.
 
 ##CSS-tweaks
-*Highlights header and footer of individual posts
-*reduces margins between posts
-*adds a border around posts
+* Highlights header and footer of individual posts
+* reduces margins between posts
+* adds a border around posts
 
 ##Upcoming features
 * An editor to get HTML Codes easily into the input-areas
 * A WYSIWYG-display from the editor
+* A cleaner source code (the refresh-function makes the individual function-initialisation obsolete)
