@@ -34,3 +34,10 @@ The second and third functions only target the display without much processing a
 * An editor to get HTML Codes easily into the input-areas
 * A WYSIWYG-display from the editor
 * A cleaner source code (the refresh-function makes the individual function-initialisation obsolete)
+ 
+#Images
+<img src="http://img09.deviantart.net/0f8d/i/2016/013/2/5/screenshot_from_2016_01_13_18_59_56_by_piperita_eqd-d9nt41z.png">
+Main display on EQD
+
+<img src="http://orig15.deviantart.net/8eb3/f/2016/013/e/6/screenshot_from_2016_01_13_18_59_50_by_piperita_eqd-d9nt426.png">
+Collapsed all on disqus; note the pad at the lower right.
