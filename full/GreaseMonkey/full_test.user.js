@@ -1,17 +1,13 @@
 // ==UserScript==
-// @name        disqus_test123
+// @name        disqus_beta
 // @namespace   Pip
 // @include     http://disqus.com/embed/*
 // @version     1
 // @grant       none
 // ==/UserScript==
 
-/****************************
-*****Experimental vers. *****
-*****------------------ *****
-*****Fixed toggle reply *****
-*****************************/
-
+	var ddd=0;	
+	var ccc=0;
 
 var timer0 = setTimeout(function(){
 	/************************
@@ -157,7 +153,7 @@ var timer0 = setTimeout(function(){
 	require(['injectCSS'], function(injectCSS) {
 	    injectCSS(function(){/*
 		button{
-			background-color: #bbb;
+			background-color: #ccc;
 			cursor:pointer;
 		}
 	    */});
@@ -223,7 +219,7 @@ var timer0 = setTimeout(function(){
 			position: fixed;
 			bottom: 2%;
 			right: 2%;
-			background-color: #ddd;
+			background-color: #ccc;
 		}
 	    */});
 	});
@@ -271,6 +267,30 @@ var timer0 = setTimeout(function(){
 	}
 	    */});
 	});
+
+	require(['injectCSS'], function(injectCSS) {
+		    injectCSS(function(){/*
+			.openRep{
+				margin-left: 15px;
+				color: #999;
+				font-weight: 500;
+				font-size: 12px;
+			}
+		    */});
+	});
+
+	  
+	require(['injectCSS'], function(injectCSS) {
+		    injectCSS(function(){/*
+			.closeRep{
+				margin-left: 2px;
+				color: #999;
+				font-weight: 500;
+				font-size: 12px;
+			}
+		    */});
+	});
+
 },1750)
 
 
@@ -320,7 +340,7 @@ var timer1 = setTimeout(function(){
 	require(['injectCSS'], function(injectCSS) {
 	    injectCSS(function(){/*
 		button{
-			background-color: #bbb;
+			background-color: #ccc;
 			cursor:pointer;
 		}
 	    */});
@@ -386,7 +406,7 @@ var timer1 = setTimeout(function(){
 			position: fixed;
 			bottom: 2%;
 			right: 2%;
-			background-color: #ddd;
+			background-color: #ccc;
 		}
 	    */});
 	});
@@ -434,6 +454,30 @@ var timer1 = setTimeout(function(){
 	}
 	    */});
 	});
+
+	require(['injectCSS'], function(injectCSS) {
+		    injectCSS(function(){/*
+			.openRep{
+				margin-left: 15px;
+				color: #999;
+				font-weight: 500;
+				font-size: 12px;
+			}
+		    */});
+	});
+
+	  
+	require(['injectCSS'], function(injectCSS) {
+		    injectCSS(function(){/*
+			.closeRep{
+				margin-left: 2px;
+				color: #999;
+				font-weight: 500;
+				font-size: 12px;
+			}
+		    */});
+	});
+
 },1750)
 
 
@@ -443,8 +487,7 @@ var timer2 = setTimeout(function(){
 	 *****Adds functions******    Button-functionality
 	 *************************    
 	 *************************/
-	ddd=0;	
-	ccc=0;
+
 
 //** Simulates click on "Show more" **
 	function loadMore(){
@@ -478,20 +521,24 @@ var timer2 = setTimeout(function(){
 	}
 
 //** Hides/Shows all posts via native disqus-functions **
-	function toggleAll(){
-		if (ddd==0){
-			$('.post').addClass('collapsed');
-			ddd=1;
-			$('#plusbutton')[0].title="Expands all posts";
-			$('#plusbutton')[0].innerHTML="Exp. Posts";
-			//$('ul.children').show()
-		} else{
-			$('.post').removeClass('collapsed');
-			ddd=0;
-			$('#plusbutton')[0].title="Collapses all posts";
-			$('#plusbutton')[0].innerHTML="Coll. Posts";
+		function toggleAll(){
+			if (ddd==0){
+				$('.post').addClass('collapsed');
+				ddd=1;
+				$('#plusbutton')[0].title="Expands all posts";
+				$('#plusbutton')[0].innerHTML="Exp. Posts";
+				a=$('.post')
+				a.find('button.invisPost').show()
+				//$('ul.children').show()
+			} else{
+				$('.post').removeClass('collapsed');
+				ddd=0;
+				$('#plusbutton')[0].title="Collapses all posts";
+				$('#plusbutton')[0].innerHTML="Coll. Posts";
+				a=$('.post')
+				a.find('button.invisPost').hide()
+			}
 		}
-	}
 
 	/*************************    
 	 *************************
@@ -510,19 +557,97 @@ var timer2 = setTimeout(function(){
 	document.getElementById("hideAll").onclick = toggleAll;
 },2000)
 
+
+	/*************************    
+	 *************************  Creates buttons for toggling replies to ind. posts
+	 ******** indRep *********  
+	 *************************   
+	 *************************/
+function indRep(){
+	//$('.deleteOnPrompt').remove()
+	function closeRep(ver){
+		a=ver.parentElement.parentElement.parentElement.parentElement.parentElement.children[2].children
+		for(f=0;f<a.length;f++){
+			ver.parentElement.parentElement.parentElement.parentElement.parentElement.children[2].children[f].classList.add("collapsed")
+		}	
+	}
+
+	function openRep(ver){
+		console.log(ver)
+		ver.parentElement.parentElement.parentElement.parentElement.parentElement.classList.remove('collapsed')
+		ver.parentElement.parentElement.parentElement.parentElement.parentElement.classList.remove('invisPost')
+		if(ver.className.contains("invisPost")){
+			ver.style.display = "none"
+		}
+		a=ver.parentElement.parentElement.parentElement.parentElement.parentElement.id
+		a=$('#'+a)
+		a.find('.collapsed').removeClass('collapsed')
+		a.find('.invisPost').filter(":not('button')").removeClass('invisPost')	
+	}
+
+
+
+	u=$('.post').length
+	for (i=0;i<u;i++){
+		n=$('.post')[i]
+		n=$("#"+n.id)
+		n=n.find('.post').length
+		if (n>0){
+			$(".openRep.invisPost")[i].innerHTML = "Open "+n+" replies"
+			$(".openRep").not(".invisPost")[i].innerHTML = "Open "+n+" replies"
+			$(".closeRep").not(".invisPost")[i].innerHTML =  "Close "+n+" replies"
+		}
+	}
+
+
+		lll=document.getElementsByClassName("openRep")
+			for (i=0;i<lll.length;i++){
+				document.getElementsByClassName("openRep")[i].onclick = function(){
+					openRep(this);	
+				}
+			}
+		lll=document.getElementsByClassName("closeRep")
+			for (i=0;i<lll.length;i++){
+				document.getElementsByClassName("closeRep")[i].onclick = function(){
+					//console.log(this)
+					//testVar=this
+					closeRep(this);	
+				}
+			}
+}
+
 	/*************************    
 	 *************************  Creates functionality to the refresh-button
 	 *****Adds functions******  stores functions and adds buttons to all headers
 	 *************************   
 	 *************************/
+
+function getHeader(){
+	var timer4 = setTimeout(function(){
+		a=$('.collapsed')
+		a.find('button.invisPost').show()
+
+		a=$('.post').filter(":not('.collapsed')")
+		//a.find('button.invisPost').hide()		
+		for(i=0;i<a.length;i++)
+			a[i].children[1].children[3].children[0].children[1].children[2].style.display="none"
+		console.log("getHeader")
+	},250)
+}
+
 	function refresh(){
-		ddd=0;	
-		ccc=0;
+		//ddd=0;	
+		//ccc=0;
 		function getButtons(){
 			$('.deleteOnPrompt').remove()
 			b=$('header').parent("div.post-body").children("header")
 		  	x="<div class='pull-right deleteOnPrompt' style='display: inline;'><button class='parent-link showMain'>Show main | </button><button class='parent-link hideRep' >Toggle Replies | </button><button class='parent-link hideAll'>Toggle Posts | </button><button class='parent-link loadMore'>Show more |</button><button class='parent-link refreshButton' style='padding-right: 0px;'>[refresh]</button></div>";
 		  	b.append(x);
+			l=$('menu')
+			l.append("<button class='openRep deleteOnPrompt'></button><button class='closeRep deleteOnPrompt'></button>")
+
+			l=$('.time-ago')
+			l.after("<button class='openRep invisPost deleteOnPrompt'></button>")
 		}
 
 		function loadMore(){
@@ -559,30 +684,90 @@ var timer2 = setTimeout(function(){
 				ddd=1;
 				$('#plusbutton')[0].title="Expands all posts";
 				$('#plusbutton')[0].innerHTML="Exp. Posts";
+				a=$('.post')
+				a.find('button.invisPost').show()
 				//$('ul.children').show()
 			} else{
 				$('.post').removeClass('collapsed');
 				ddd=0;
 				$('#plusbutton')[0].title="Collapses all posts";
 				$('#plusbutton')[0].innerHTML="Coll. Posts";
+				a=$('.post')
+				a.find('button.invisPost').hide()
 			}
 		}
 		
 		getButtons()
-		console.log('1')
 		lll=document.getElementsByClassName("loadMore")
 		var timer40 = setTimeout(function(){
 			for (i=0;i<lll.length;i++){
-				console.log(i +'_____'+lll.length)
 				document.getElementsByClassName("loadMore")[i].onclick = loadMore;
 				document.getElementsByClassName("hideRep")[i].onclick = toggleRep;
 				document.getElementsByClassName("showMain")[i].onclick = showMain;
 				document.getElementsByClassName("hideAll")[i].onclick = toggleAll;
 				document.getElementsByClassName("refreshButton")[i].onclick = refresh;		
 			}
-		},250)
+		indRep()
+		getHeader()
+		},350)
+		var timer40 = setTimeout(function(){
+				$('.expand').children("a").addClass("collex")
+				$('.collapse').children("a").addClass("collex")
+				l=$('.collex').length
+				for (i=0;i<l;i++){
+					document.getElementsByClassName("collex")[i].onclick = getHeader;	
+				}
+				indRep()
+				getHeader()
+		},600)
 	}
 
-		var timer4 = setTimeout(function(){
-			refresh()			
-		},3500)
+function fastrefreshc(){
+	var timer4 = setTimeout(function(){
+		refresh()
+		//indRep()			
+	},1500)
+}
+
+function mediumrefreshc(){
+	var timer4 = setTimeout(function(){
+		//alert('success')
+		refresh()
+		//indRep()				
+	},2500)
+}
+
+function slowrefreshc(){
+	var timer4 = setTimeout(function(){
+		//alert('success')
+		refresh()	
+		//indRep()			
+	},3500)
+}
+
+function combine(){
+	$('button.realtime')[0].classList.add('mediumrefresh')
+	$('.load-more')[0].children[0].classList.add('slowrefresh')
+	$('.dropdown-menu', '.pull-right').children().children().addClass('mediumrefresh')
+	$('li.realtime').children(".btn-small").addClass('fastrefresh')
+	var timer40 = setTimeout(function(){
+		lll=$('.mediumrefresh').length
+		for (i=0;i<lll;i++){
+			document.getElementsByClassName("mediumrefresh")[i].onclick = mediumrefreshc;	
+		}
+		lll=$('.slowrefresh').length
+		for (i=0;i<lll;i++){
+			document.getElementsByClassName("slowrefresh")[i].onclick = slowrefreshc;	
+		}
+		lll=$('.fastrefresh').length
+		for (i=0;i<lll;i++){
+			document.getElementsByClassName("fastrefresh")[i].onclick = fastrefreshc;	
+		}
+	},200)
+}
+
+	var timer4 = setTimeout(function(){
+		combine()	
+		refresh()		
+		fastrefreshc()
+	},3500)
