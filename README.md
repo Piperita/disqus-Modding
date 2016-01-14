@@ -33,6 +33,7 @@ The second and third functions only target the display without much processing a
 * adds a border around posts
 
 ##Upcoming features
+* Individual buttons to open/close replies of an individual post (15th January 2016)
 * An editor to get HTML Codes easily into the input-areas
 * A WYSIWYG-display from the editor
 * A cleaner source code (the refresh-function makes the individual function-initialisation obsolete)
