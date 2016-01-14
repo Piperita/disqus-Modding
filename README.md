@@ -5,7 +5,9 @@
 To use it on Equestria Daily or other websites themselves without using the disqus-site itself, an add-on like <a href="https://addons.mozilla.org/de/firefox/addon/greasemonkey/">GreaseMonkey</a> (Firefox) or <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=de">TamperMonkey</a> (Chrome) is inevitable as cross-domain scripting is not possible from the console.
 With such an add-on installed use the link below which should launch an install-prompt: 
 
-####<b><a href="https://github.com/Piperita/disqus-Modding/raw/master/full/GreaseMonkey/full_stable.user.js">CLICK HERE</a></b>
+> <b><a href="https://github.com/Piperita/disqus-Modding/raw/master/full/GreaseMonkey/full_stable.user.js">CLICK HERE</a></b> for the <u>stable</u> version <br>
+> <b><a href="https://github.com/Piperita/disqus-Modding/raw/master/full/GreaseMonkey/full_test.user.js">CLICK HERE</a></b> for the <u>beta-version</u>. Current differences: Fixed synergy between "Show Main" and "Toggle Replies"
+
 
 Alternatively, <a href="https://cdn.rawgit.com/Piperita/disqus-Modding/master/full/Raw/full_stable.js">here</a> is the raw text for the script that can be launched via console at disqus itself or can be taken and edited according to the MIT licence.
 
