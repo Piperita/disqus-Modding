@@ -6,8 +6,12 @@ To use it on Equestria Daily or other websites themselves without using the disq
 With such an add-on installed use the link below which should launch an install-prompt: 
 
 > <b><a href="https://github.com/Piperita/disqus-Modding/raw/master/full/GreaseMonkey/full_stable.user.js">CLICK HERE</a></b> for the <u>stable</u> version <br>
-> <b><a href="https://github.com/Piperita/disqus-Modding/raw/master/full/GreaseMonkey/full_test.user.js">CLICK HERE</a></b> for the <u>beta-version</u>. Current differences: Fixed synergy between "Show Main" and "Toggle Replies"
+> <b><a href="https://github.com/Piperita/disqus-Modding/raw/master/full/GreaseMonkey/full_test.user.js">CLICK HERE</a></b> for the <u>beta-version</u>. 
 
+## Current differences Stable/Test
+* Fixed synergy between "Show Main" and "Toggle Replies"
+* Individual reply-counter with collapse/expand-feature
+* Auto-refreshing buttons
 
 Alternatively, <a href="https://cdn.rawgit.com/Piperita/disqus-Modding/master/full/Raw/full_stable.js">here</a> is the raw text for the script that can be launched via console at disqus itself or can be taken and edited according to the MIT licence.
 
@@ -32,6 +36,11 @@ The second and third functions only target the display without much processing a
 * reduces margins between posts
 * adds a border around posts
 
+## Reply-counter
+* Adds button at the footer of every comment showing the amount of replies (if any)
+* Buttons can expand/collapse replies to a given individual post
+* Counter isupdated upon activating a post-update (sorting, loading more, loading new posts, loading new replies)
+
 ##Upcoming features
 * Individual buttons to open/close replies of an individual post (15th January 2016)
 * An editor to get HTML Codes easily into the input-areas
@@ -39,6 +48,9 @@ The second and third functions only target the display without much processing a
 * A cleaner source code (the refresh-function makes the individual function-initialisation obsolete)
  
 #Images
+<img src="http://orig07.deviantart.net/04aa/f/2016/014/8/9/indrep_by_piperita_eqd-d9nxdmb.png">
+Individual post-counter and expand-/collaps-buttons
+
 <img src="http://img09.deviantart.net/0f8d/i/2016/013/2/5/screenshot_from_2016_01_13_18_59_56_by_piperita_eqd-d9nt41z.png">
 Main display on EQD
 
